@@ -496,7 +496,7 @@
             switchTheme(savedStyle);
         });
 
-        // 本機 API 金鑰儲存管理 (新增)
+        // 本機 API 金鑰儲存管理
         function saveUserApiKey() {
             const key = document.getElementById('inputApiKey').value.trim();
             if (!key) {
@@ -846,8 +846,13 @@ ${structurePrompt}
 4. 切勿生成任何關於 AI 本身的解釋，直接輸出文案結果即可。`;
 
             try {
-                // 使用動態抓取出的安全性 activeKey
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
+                // 【關鍵修復核心】：
+                // 判斷金鑰來源。若是使用者本機手動輸入的金鑰，呼叫穩定版模型 gemini-2.5-flash；
+                // 若是 Canvas 預覽環境免金鑰測試，則維持預覽專用模型 gemini-2.5-flash-preview-09-2025。
+                const isUserKey = !!localStorage.getItem('user_gemini_api_key');
+                const modelName = isUserKey ? "gemini-2.5-flash" : "gemini-2.5-flash-preview-09-2025";
+                
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${activeKey}`;
                 const payload = {
                     contents: [{ parts: [{ text: userQuery }] }],
                     systemInstruction: { parts: [{ text: systemPrompt }] }
@@ -877,7 +882,7 @@ ${structurePrompt}
                 // 渲染結果
                 document.getElementById('outputContent').textContent = currentGeneratedText;
                 document.getElementById('charCount').textContent = `字數：${currentGeneratedText.length} 字`;
-                document.getElementById('generationMeta').textContent = `平台：${platform} | 類型：${type}`;
+                document.getElementById('generationMeta').textContent = `平台：${platform} | 類型：${type} | 模型：${modelName}`;
 
                 // 顯示合規性標籤
                 const compBadge = document.getElementById('complianceBadge');
@@ -890,7 +895,7 @@ ${structurePrompt}
             } catch (err) {
                 console.error(err);
                 toggleUiState('placeholder');
-                showToast('生成文案時發生錯誤，請確認您的 API 金鑰是否有效。', 'error');
+                showToast('生成文案時發生錯誤，請確認您的 API 金鑰是否有效且在允許存取的區域。', 'error');
             } finally {
                 clearInterval(tipInterval);
             }
