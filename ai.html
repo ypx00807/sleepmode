@@ -143,6 +143,40 @@
                 <!-- 左側：設定控制面板 (5 col) -->
                 <section class="lg:col-span-5 space-y-6">
                     
+                    <!-- 🔑 API 金鑰安全設定面板 (新增) -->
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-amber-200 dark:border-amber-950 shadow-sm bg-gradient-to-br from-white to-amber-50/20 dark:to-amber-950/5">
+                        <div class="flex items-center justify-between mb-3">
+                            <h2 class="text-sm font-bold text-slate-700 dark:text-slate-300 flex items-center">
+                                <i data-lucide="key-round" class="w-4 h-4 mr-1.5 text-amber-600 dark:text-amber-400"></i>
+                                <span>1. 部署與金鑰設定 (GitHub 專用)</span>
+                            </h2>
+                            <span id="keyStatusBadge" class="text-[10px] px-2 py-0.5 rounded font-bold bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-400">未設定金鑰</span>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                                💡 當您將網頁部署到 <strong>GitHub Pages</strong> 時，請勿將金鑰寫死在程式碼中。請在下方輸入您個人申請的免費 Gemini API Key，我們只會將其安全地儲存於本機瀏覽器（Local Storage）。
+                            </p>
+                            <div class="flex space-x-2">
+                                <div class="relative flex-grow">
+                                    <input type="password" id="inputApiKey" class="w-full pl-3 pr-8 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 focus:ring-1 focus:ring-amber-500 focus:border-transparent transition" placeholder="貼上您的 Gemini API Key (AIzaSy...)">
+                                    <button onclick="toggleKeyVisibility()" class="absolute right-2.5 top-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5" id="eyeIcon"></i>
+                                    </button>
+                                </div>
+                                <button onclick="saveUserApiKey()" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition active:scale-95">
+                                    儲存金鑰
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between text-[10px]">
+                                <a href="https://aistudio.google.com/" target="_blank" class="text-amber-700 dark:text-amber-400 hover:underline flex items-center">
+                                    <i data-lucide="external-link" class="w-3 h-3 mr-0.5"></i> 前往 Google AI Studio 免費申請 API Key
+                                </a>
+                                <button onclick="clearUserApiKey()" class="text-rose-500 hover:underline">清除本機紀錄</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- 快捷範本 -->
                     <div class="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-100 dark:border-slate-800/80 shadow-sm">
                         <h2 class="text-sm font-semibold text-slate-500 dark:text-slate-400 mb-3 flex items-center">
@@ -173,7 +207,7 @@
                         <!-- 核心主題 -->
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
-                                文案主題 / 產品名稱 <span class="text-rose-500">*</span>
+                                2. 文案主題 / 產品名稱 <span class="text-rose-500">*</span>
                             </label>
                             <textarea id="topic" rows="3" class="w-full px-4 py-3 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-transparent focus:ring-2 focus:ring-primary-500 focus:border-transparent transition resize-none placeholder-slate-400" placeholder="例如：【極簡防風保暖外套】或【台北市大安區新開幕的文青風深夜咖啡廳】"></textarea>
                         </div>
@@ -224,7 +258,7 @@
                                 <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">品牌語調風格</label>
                                 <select id="tone" class="w-full px-3 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition">
                                     <option value="休眠模式 CIS (70%平靜/20%溫慢/10%幽默)">休眠模式 CIS (溫慢留白)</option>
-                                    <option value="溫暖感性">溫暖感性</option>
+                                    <option value="溫慢感性">溫慢感性</option>
                                     <option value="專業知性">專業知性</option>
                                     <option value="幽默風趣">幽默風趣</option>
                                     <option value="熱血激昂">熱血激昂</option>
@@ -415,7 +449,7 @@
     <!-- 腳本執行區 -->
     <script>
         // 專案全域變數
-        const apiKey = ""; // Canvas 環境自動注入
+        const apiKey = ""; // 保持空值，防範 GitHub 私鑰洩漏風險。
         let currentGeneratedText = "";
         let copywritingHistory = [];
 
@@ -429,6 +463,15 @@
             if (savedHistory) {
                 copywritingHistory = JSON.parse(savedHistory);
                 renderHistory();
+            }
+
+            // 載入使用者自行儲存的 API Key
+            const savedUserKey = localStorage.getItem('user_gemini_api_key');
+            if (savedUserKey) {
+                document.getElementById('inputApiKey').value = savedUserKey;
+                updateKeyStatus(true);
+            } else {
+                updateKeyStatus(false);
             }
 
             // 深色模式初始化
@@ -452,6 +495,56 @@
             const savedStyle = localStorage.getItem('theme_style') || 'cocoa';
             switchTheme(savedStyle);
         });
+
+        // 本機 API 金鑰儲存管理 (新增)
+        function saveUserApiKey() {
+            const key = document.getElementById('inputApiKey').value.trim();
+            if (!key) {
+                showToast('請輸入有效的金鑰', 'error');
+                return;
+            }
+            localStorage.setItem('user_gemini_api_key', key);
+            updateKeyStatus(true);
+            showToast('API 金鑰已安全儲存於本機！');
+        }
+
+        function clearUserApiKey() {
+            localStorage.removeItem('user_gemini_api_key');
+            document.getElementById('inputApiKey').value = '';
+            updateKeyStatus(false);
+            showToast('已清除本機的金鑰設定');
+        }
+
+        function updateKeyStatus(hasKey) {
+            const badge = document.getElementById('keyStatusBadge');
+            if (hasKey) {
+                badge.textContent = '金鑰已儲存';
+                badge.className = "text-[10px] px-2 py-0.5 rounded font-bold bg-emerald-100 text-emerald-850 dark:bg-emerald-950/40 dark:text-emerald-400";
+            } else {
+                badge.textContent = '未設定金鑰';
+                badge.className = "text-[10px] px-2 py-0.5 rounded font-bold bg-rose-100 text-rose-800 dark:bg-rose-950/40 dark:text-rose-400";
+            }
+        }
+
+        function toggleKeyVisibility() {
+            const input = document.getElementById('inputApiKey');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                eyeIcon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                input.type = 'password';
+                eyeIcon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
+        }
+
+        // 取得當前有效 API Key
+        function getActiveApiKey() {
+            const localSaved = localStorage.getItem('user_gemini_api_key') || "";
+            // 如果本機有存，優先使用使用者存的（支援 GitHub 部署）；如果沒有，嘗試系統可能注入的 apiKey 變數
+            return localSaved || apiKey;
+        }
 
         // 動態切換品牌配色風格
         function switchTheme(style) {
@@ -635,7 +728,14 @@
             const useHashtags = document.getElementById('useHashtags').checked;
             const useCompliance = document.getElementById('useCompliance').checked;
 
-            // 基本檢驗
+            // 確保金鑰已設定
+            const activeKey = getActiveApiKey();
+            if (!activeKey) {
+                toggleUiState('placeholder');
+                showToast('請先在上方設定您的 Gemini API 金鑰！', 'error');
+                return;
+            }
+
             if (!topic) {
                 showToast('請填寫文案主題或產品名稱', 'error');
                 return;
@@ -671,7 +771,6 @@
   * 不要說「低糖/減醣/無糖/低卡」，要說：「微甜不膩」、「輕盈純粹的烘焙風味」、「帶有天然原香的優雅甜度」、「溫潤微甘」、「口感純淨無負擔」。
 `;
             } else {
-                // 即便關閉一般法規，也必須嚴守「無低糖/減醣」的要求
                 complianceRules = `
 【⚠️ 文案特殊禁令：嚴禁出現「低糖」與「減醣」字眼】
 - ❌ 文案內容中絕對不能出現「低糖」、「減醣」相關文字。
@@ -711,7 +810,7 @@
 2. 品牌定位：「一位懂得留白的朋友」。不說教、不過度熱情、不冰冷。用溫柔、成熟、平靜的語氣陪伴。
 3. 情緒配比：
    - 70% 平靜：語氣沉穩，句子長度適中，多用句號與空格創造「呼吸感」。
-   - 20% 溫暖：描述甜點焙茶香氣、手寫質感、微光日常。
+   - 20% 溫慢：描述甜點焙茶香氣、手寫質感、微光日常。
    - 10% 幽默：成熟大人的生活小無奈與會心一笑。
 4. BI (行為規範)：
    - ❌ 絕對禁止使用一連串的驚嘆號（例如 ！！！）或煽動性行銷詞彙（如：爆款、必買、瘋搶、神級）。
@@ -747,7 +846,8 @@ ${structurePrompt}
 4. 切勿生成任何關於 AI 本身的解釋，直接輸出文案結果即可。`;
 
             try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+                // 使用動態抓取出的安全性 activeKey
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${activeKey}`;
                 const payload = {
                     contents: [{ parts: [{ text: userQuery }] }],
                     systemInstruction: { parts: [{ text: systemPrompt }] }
@@ -790,7 +890,7 @@ ${structurePrompt}
             } catch (err) {
                 console.error(err);
                 toggleUiState('placeholder');
-                showToast('生成文案時發生錯誤，請重試。', 'error');
+                showToast('生成文案時發生錯誤，請確認您的 API 金鑰是否有效。', 'error');
             } finally {
                 clearInterval(tipInterval);
             }
