@@ -52,6 +52,20 @@
             border-color: #6B4423 !important;
             box-shadow: 0 0 0 2px rgba(107, 68, 35, 0.15);
         }
+        
+        /* 欄位未填寫警示樣式 */
+        .input-error {
+            border-color: #EF4444 !important;
+            background-color: #FEF2F2 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+            animation: shake 0.3s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-4px); }
+            40%, 80% { transform: translateX(4px); }
+        }
     </style>
 </head>
 <body class="bg-sleep-100 text-sleep-800 font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-sleep-200">
@@ -113,7 +127,7 @@
         </section>
 
         <!-- Order Form & Interactive Items -->
-        <form id="orderForm" onsubmit="handlePreSubmit(event);" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <form id="orderForm" novalidate onsubmit="handlePreSubmit(event);" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <!-- Left & Middle: Input Areas -->
             <div class="md:col-span-2 space-y-6">
@@ -138,20 +152,23 @@
 
                         <!-- Target Delivery/Pickup Date -->
                         <div>
-                            <label class="block text-xs font-bold text-sleep-800 mb-1">預期出貨 / 自取日期</label>
-                            <input type="date" id="deliveryDate" min="2026-08-17" max="2026-09-24" value="2026-09-15" required
-                                   class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono">
-                            <p class="text-[10px] text-sleep-600 mt-1">※ 最終訂購截止日為 2026/09/18。供備貨排單使用，不影響早鳥價格判定。</p>
+                            <label class="block text-xs font-bold text-sleep-800 mb-1">預期出貨 / 自取日期 <span class="text-red-500">*</span></label>
+                            <input type="date" id="deliveryDate" min="2026-08-17" max="2026-09-24" value="2026-08-17" required
+                                   class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono transition-all">
+                            <p class="text-[10px] text-sleep-600 mt-1">※ 開放取貨日期為 2026/08/17 起。供備貨排單使用，不影響早鳥價格判定。</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 2: Product Catalog -->
-                <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left space-y-4">
-                    <h3 class="text-sm font-bold font-serif text-sleep-800 flex items-center gap-2">
-                        <span class="w-1.5 h-3 bg-sleep-800 rounded-full"></span>
-                        二、選擇中秋限量禮盒品項
-                    </h3>
+                <div id="productCatalogSection" class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left space-y-4 transition-all">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-bold font-serif text-sleep-800 flex items-center gap-2">
+                            <span class="w-1.5 h-3 bg-sleep-800 rounded-full"></span>
+                            二、選擇中秋限量禮盒品項 <span class="text-red-500">*</span>
+                        </h3>
+                        <span id="qtyErrHint" class="text-xs text-red-500 font-bold hidden">⚠️ 請至少選擇 1 盒</span>
+                    </div>
 
                     <!-- Item 1: 6-pack -->
                     <div class="border-b border-sleep-200/60 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
@@ -176,7 +193,7 @@
                         <div class="space-y-1 max-w-sm">
                             <h4 class="text-sm font-bold text-sleep-800 font-serif">八入裝蛋黃酥禮盒</h4>
                             <p class="text-xs text-sleep-600 leading-relaxed">
-                                圓潤飽滿、黃金比例的手作蛋黃酥。香濃酥皮襯托飽滿鹹蛋黃與細緻綿密紅豆沙，大方典雅，為家人相聚的時光溫柔留香。
+                                圓潤飽滿、黃金比例的手作蛋黃酥。香濃奶油酥皮襯托飽滿鹹蛋黃與細緻綿密紅豆沙，大方典雅，為家人相聚的時光溫柔留香。
                             </p>
                             <p class="text-xs text-sleep-800 font-semibold font-mono">
                                 單價: <span id="price8Text" class="text-sm">NT$ 420</span> (原價 NT$ 480)
@@ -202,7 +219,7 @@
                         <label class="cursor-pointer">
                             <input type="radio" name="deliveryMethod" value="pickup" checked onchange="toggleDeliveryMethod()" class="sr-only peer">
                             <div class="text-center p-3 rounded-xl border border-sleep-200 bg-white text-sleep-800 text-xs font-bold peer-checked:border-sleep-800 peer-checked:bg-sleep-800 peer-checked:text-white transition-all shadow-sm">
-                                🏪 自取 (全家中泰店)
+                                🏪 自取 (全家中態店)
                             </div>
                         </label>
                         <label class="cursor-pointer">
@@ -216,12 +233,18 @@
                     <!-- Personal Information -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                         <div>
-                            <label for="custName" class="block text-xs font-bold text-sleep-800 mb-1">訂購人姓名</label>
-                            <input type="text" id="custName" required placeholder="如：休眠模式" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label for="custName" class="block text-xs font-bold text-sleep-800">訂購人姓名 <span class="text-red-500">*</span></label>
+                                <span id="custNameErr" class="text-[10px] text-red-500 hidden">⚠️ 請填寫姓名</span>
+                            </div>
+                            <input type="text" id="custName" required placeholder="如：休眠模式" oninput="clearError('custName', 'custNameErr')" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 transition-all">
                         </div>
                         <div>
-                            <label for="custPhone" class="block text-xs font-bold text-sleep-800 mb-1">聯絡電話</label>
-                            <input type="tel" id="custPhone" required placeholder="如：0912-345678" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono">
+                            <div class="flex justify-between items-center mb-1">
+                                <label for="custPhone" class="block text-xs font-bold text-sleep-800">聯絡電話 <span class="text-red-500">*</span></label>
+                                <span id="custPhoneErr" class="text-[10px] text-red-500 hidden">⚠️ 請填寫聯絡電話</span>
+                            </div>
+                            <input type="tel" id="custPhone" required placeholder="如：0912-345678" oninput="clearError('custPhone', 'custPhoneErr')" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono transition-all">
                         </div>
                     </div>
 
@@ -259,15 +282,21 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <!-- City -->
                             <div>
-                                <label class="block text-xs font-bold text-sleep-800 mb-1">縣市</label>
-                                <select id="citySelect" onchange="onCityChange()" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="block text-xs font-bold text-sleep-800">縣市 <span class="text-red-500">*</span></label>
+                                    <span id="cityErr" class="text-[10px] text-red-500 hidden">⚠️請選擇</span>
+                                </div>
+                                <select id="citySelect" onchange="onCityChange(); clearError('citySelect', 'cityErr');" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800 transition-all">
                                     <option value="">選擇縣市</option>
                                 </select>
                             </div>
                             <!-- District -->
                             <div>
-                                <label class="block text-xs font-bold text-sleep-800 mb-1">鄉鎮市區</label>
-                                <select id="districtSelect" onchange="onDistrictChange()" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800">
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="block text-xs font-bold text-sleep-800">鄉鎮市區 <span class="text-red-500">*</span></label>
+                                    <span id="distErr" class="text-[10px] text-red-500 hidden">⚠️請選擇</span>
+                                </div>
+                                <select id="districtSelect" onchange="onDistrictChange(); clearError('districtSelect', 'distErr');" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800 transition-all">
                                     <option value="">選擇鄉鎮區</option>
                                 </select>
                             </div>
@@ -280,8 +309,11 @@
 
                         <!-- Street address line -->
                         <div>
-                            <label class="block text-xs font-bold text-sleep-800 mb-1">收件詳細地址</label>
-                            <input type="text" id="shippingAddress" placeholder="請填寫道路名稱、樓層門牌等資料" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-xs text-sleep-800">
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="block text-xs font-bold text-sleep-800">收件詳細地址 <span class="text-red-500">*</span></label>
+                                <span id="addressErr" class="text-[10px] text-red-500 hidden">⚠️請填寫詳細地址</span>
+                            </div>
+                            <input type="text" id="shippingAddress" placeholder="請填寫道路名稱、樓層門牌等資料" oninput="clearError('shippingAddress', 'addressErr')" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-xs text-sleep-800 transition-all">
                         </div>
                     </div>
 
@@ -439,10 +471,9 @@
         </div>
     </div>
 
-    <!-- ORDER SUCCESS & PAYMENT GUIDANCE MODAL (WITH CLOSE BUTTON) -->
+    <!-- ORDER SUCCESS & PAYMENT GUIDANCE MODAL -->
     <div id="orderSuccessModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-md hidden flex items-center justify-center p-4">
         <div class="bg-sleep-50 border-2 border-sleep-800 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden text-left space-y-4 relative">
-            <!-- Header Banner with Close Button -->
             <div class="bg-sleep-800 text-white p-5 text-center space-y-1 relative">
                 <button type="button" onclick="closeSuccessModal()" class="absolute top-3 right-4 text-white/70 hover:text-white text-2xl font-sans leading-none">&times;</button>
                 <div class="text-3xl mb-1">✨ 🌕 ✨</div>
@@ -450,9 +481,7 @@
                 <p class="text-xs opacity-90 font-sans">請完成最後的對帳步驟，我們將為您安排排單備貨</p>
             </div>
 
-            <!-- Content Area -->
             <div class="px-6 py-2 space-y-4 text-xs text-sleep-800">
-                <!-- Step 1: Bank Transfer -->
                 <div class="bg-white rounded-xl p-3.5 border border-sleep-200 space-y-2 shadow-sm">
                     <div class="flex items-center gap-1.5 text-sleep-800 font-bold border-b border-sleep-200 pb-1.5">
                         <span class="bg-sleep-800 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-mono">1</span>
@@ -468,7 +497,6 @@
                     </button>
                 </div>
 
-                <!-- Step 2: Return to LINE -->
                 <div class="bg-white rounded-xl p-3.5 border border-sleep-200 space-y-2 shadow-sm">
                     <div class="flex items-center gap-1.5 text-sleep-800 font-bold border-b border-sleep-200 pb-1.5">
                         <span class="bg-sleep-800 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-mono">2</span>
@@ -480,7 +508,6 @@
                 </div>
             </div>
 
-            <!-- Footer Action -->
             <div class="px-6 pb-6 space-y-2">
                 <button type="button" onclick="copyToLineFormat(); showToast('明細已複製！可貼至 LINE 對帳'); closeSuccessModal();" class="w-full bg-sleep-800 hover:bg-sleep-900 text-white font-serif rounded-xl py-3 text-xs font-bold tracking-widest transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-1.5">
                     <span>💬</span> 複製明細並關閉視窗
@@ -633,6 +660,26 @@
             }, 3500);
         }
 
+        // --- CLEAR FIELD ERROR STYLES ---
+        function clearError(inputId, errHintId) {
+            const elem = document.getElementById(inputId);
+            if (elem) elem.classList.remove('input-error');
+            const hint = document.getElementById(errHintId);
+            if (hint) hint.classList.add('hidden');
+        }
+
+        function clearAllErrors() {
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(i => i.classList.remove('input-error'));
+            document.getElementById('productCatalogSection').classList.remove('input-error');
+            
+            const hints = ['qtyErrHint', 'custNameErr', 'custPhoneErr', 'cityErr', 'distErr', 'addressErr'];
+            hints.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add('hidden');
+            });
+        }
+
         // --- ON WINDOW LOAD INITIALIZATION ---
         window.onload = function() {
             SYSTEM_DATE = new Date(); 
@@ -715,6 +762,10 @@
             val = Math.max(0, Math.min(99, val + delta));
             elem.value = val;
             calculateTotal();
+            if (val > 0) {
+                document.getElementById('productCatalogSection').classList.remove('input-error');
+                document.getElementById('qtyErrHint').classList.add('hidden');
+            }
         }
 
         // --- DELIVERY TOGGLER ---
@@ -850,43 +901,86 @@
             });
         }
 
-        // --- PRE-SUBMIT CHECK & OPEN CONFIRMATION MODAL ---
+        // --- PRE-SUBMIT CHECK WITH MOBILE VISUAL HIGHLIGHTING ---
         function handlePreSubmit(event) {
             event.preventDefault();
+            clearAllErrors();
+
             const data = getCalculatedData();
+            let firstErrorElem = null;
 
+            // 1. 檢查禮盒數量
             if (data.qty6 === 0 && data.qty8 === 0) {
-                showToast("⚠️ 請至少選購一項蛋黃酥禮盒盒數再送出訂單。");
-                return;
+                const catalog = document.getElementById('productCatalogSection');
+                catalog.classList.add('input-error');
+                document.getElementById('qtyErrHint').classList.remove('hidden');
+                if (!firstErrorElem) firstErrorElem = catalog;
             }
 
-            const custName = document.getElementById('custName').value.trim();
-            const custPhone = document.getElementById('custPhone').value.trim();
-            const deliveryDateStr = document.getElementById('deliveryDate').value;
-
-            if (!custName || !custPhone) {
-                showToast("⚠️ 請填寫訂購人姓名與聯絡電話。");
-                return;
+            // 2. 檢查訂購人姓名
+            const custNameInput = document.getElementById('custName');
+            const custName = custNameInput.value.trim();
+            if (!custName) {
+                custNameInput.classList.add('input-error');
+                document.getElementById('custNameErr').classList.remove('hidden');
+                if (!firstErrorElem) firstErrorElem = custNameInput;
             }
 
-            let logisticsInfo = "";
+            // 3. 檢查電話
+            const custPhoneInput = document.getElementById('custPhone');
+            const custPhone = custPhoneInput.value.trim();
+            if (!custPhone) {
+                custPhoneInput.classList.add('input-error');
+                document.getElementById('custPhoneErr').classList.remove('hidden');
+                if (!firstErrorElem) firstErrorElem = custPhoneInput;
+            }
+
+            // 4. 檢查常溫宅配欄位 (若選擇宅配)
             let isShipping = (data.method === 'shipping');
+            let logisticsInfo = "";
 
             if (!isShipping) {
-                logisticsInfo = "自取 (全家中泰店)";
+                logisticsInfo = "自取 (全家中態店)";
             } else {
-                const city = document.getElementById('citySelect').value;
-                const dist = document.getElementById('districtSelect').value;
+                const citySel = document.getElementById('citySelect');
+                const distSel = document.getElementById('districtSelect');
+                const streetInput = document.getElementById('shippingAddress');
+
+                const city = citySel.value;
+                const dist = distSel.value;
+                const street = streetInput.value.trim();
                 const zip = document.getElementById('zipcodeInput').value;
-                const street = document.getElementById('shippingAddress').value.trim();
-                if (!city || !dist || !street) {
-                    showToast("⚠️ 請完整填寫常溫宅配的縣市、鄉鎮區及詳細收件地址。");
-                    return;
+
+                if (!city) {
+                    citySel.classList.add('input-error');
+                    document.getElementById('cityErr').classList.remove('hidden');
+                    if (!firstErrorElem) firstErrorElem = citySel;
                 }
+                if (!dist) {
+                    distSel.classList.add('input-error');
+                    document.getElementById('distErr').classList.remove('hidden');
+                    if (!firstErrorElem) firstErrorElem = distSel;
+                }
+                if (!street) {
+                    streetInput.classList.add('input-error');
+                    document.getElementById('addressErr').classList.remove('hidden');
+                    if (!firstErrorElem) firstErrorElem = streetInput;
+                }
+
                 logisticsInfo = `${zip ? `[${zip}] ` : ""}${city}${dist}${street}`;
             }
 
+            // 若有欄位未填寫：自動平滑滾動至第一個錯誤欄位並提示
+            if (firstErrorElem) {
+                firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                showToast("⚠️ 有欄位尚未填寫完整，請確認紅框標示處。");
+                return;
+            }
+
+            // 驗證完全正確 ➔ 準備快取並開啟確認視窗
+            const deliveryDateStr = document.getElementById('deliveryDate').value;
             const orderId = "SM-" + Date.now().toString().slice(-6);
+
             pendingOrderCache = {
                 id: orderId,
                 name: custName,
@@ -923,7 +1017,7 @@
                 document.getElementById('confirmAddressRow').classList.remove('hidden');
                 document.getElementById('confirmAddressText').textContent = logisticsInfo;
             } else {
-                document.getElementById('confirmLogisticsMethod').textContent = "自取 (全家中泰店 - 免運)";
+                document.getElementById('confirmLogisticsMethod').textContent = "自取 (全家中態店 - 免運)";
                 document.getElementById('confirmAddressRow').classList.add('hidden');
             }
 
