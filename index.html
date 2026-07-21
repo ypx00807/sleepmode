@@ -221,7 +221,7 @@
                         <label class="cursor-pointer">
                             <input type="radio" name="deliveryMethod" value="pickup" checked onchange="toggleDeliveryMethod()" class="sr-only peer">
                             <div class="text-center p-3 rounded-xl border border-sleep-200 bg-white text-sleep-800 text-xs font-bold peer-checked:border-sleep-800 peer-checked:bg-sleep-800 peer-checked:text-white transition-all shadow-sm">
-                                🏪 自取 (全家中態店)
+                                🏪 自取 (全家中泰店)
                             </div>
                         </label>
                         <label class="cursor-pointer">
@@ -255,7 +255,7 @@
                         <div class="flex items-start space-x-2 text-xs text-sleep-800 leading-relaxed">
                             <span class="text-lg">📍</span>
                             <div>
-                                <p class="font-bold">自取地點：全家便利商店 台中中態店</p>
+                                <p class="font-bold">自取地點：全家便利商店 台中中泰店</p>
                                 <p class="text-sleep-600 text-[11px] mt-0.5">地址：406 台中市北屯區中清路二段409號、411號</p>
                                 <p class="text-sleep-600 text-[11px]">說明：請於指定取貨日 13:00 - 20:00 前往門市取件，現場出示訂購姓名與電話核對即可。</p>
                             </div>
@@ -269,7 +269,7 @@
                                 referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=台中市北屯區中清路二段409號全家中態店" 
+                        <a href="https://www.google.com/maps/search/?api=1&query=台中市北屯區中清路二段409號全家中泰店" 
                            target="_blank" rel="noopener noreferrer"
                            class="w-full bg-white hover:bg-sleep-100 text-sleep-800 border border-sleep-300 rounded-xl py-2 px-3 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
                             <span>🗺️</span> 在 Google 地圖開啟門市地圖與導航
@@ -528,7 +528,7 @@
     <script>
         // --- 🔗 GOOGLE SHEETS API CONFIGURATION ---
         // 請將下方引號內的網址替換為您部署 Apps Script 獲得的 Web App URL
-        const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpFO2Rb_Ten7lDz1ubovz-mB7YULgrOug44I9le_DjOR4cJEiqyQeWgWqSm3Xqu3ws/exec";
+        const GOOGLE_SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwXSmwmHqy1PucrlOdG_IO6LivDqtMwXL5WC3VXrRtPIVhUBHJVWmdEqv97hSNpHe2a/exec";
 
         // --- COMPLETE TAIWAN ALL CITIES & DISTRICTS DATABASE ---
         const TW_ZIP_DATA = {
@@ -981,7 +981,7 @@
                 document.getElementById('confirmAddressRow').classList.remove('hidden');
                 document.getElementById('confirmAddressText').textContent = logisticsInfo;
             } else {
-                document.getElementById('confirmLogisticsMethod').textContent = "自取 (全家中態店 - 免運)";
+                document.getElementById('confirmLogisticsMethod').textContent = "自取 (全家中泰店 - 免運)";
                 document.getElementById('confirmAddressRow').classList.add('hidden');
             }
 
