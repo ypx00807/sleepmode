@@ -177,7 +177,7 @@
                         <div class="space-y-1 max-w-sm">
                             <h4 class="text-sm font-bold text-sleep-800 font-serif">六入裝蛋黃酥禮盒</h4>
                             <p class="text-xs text-sleep-600 leading-relaxed">
-                                使用精選在地紅土鹹蛋黃，包裹在溫潤經典的烏豆沙之中。外皮千層酥脆，烤箱出爐時溢滿純粹的紅豆沙與奶油烘焙溫香。
+                                嚴選在地紅土鹹蛋黃，包裹在溫潤經典的烏豆沙之中。外皮千層酥脆，烤箱出爐時溢滿純粹的紅豆沙與奶油烘焙溫香。
                             </p>
                             <p class="text-xs text-sleep-800 font-semibold font-mono">
                                 單價: <span id="price6Text" class="text-sm">NT$ 330</span> (原價 NT$ 360)
@@ -195,7 +195,7 @@
                         <div class="space-y-1 max-w-sm">
                             <h4 class="text-sm font-bold text-sleep-800 font-serif">八入裝蛋黃酥禮盒</h4>
                             <p class="text-xs text-sleep-600 leading-relaxed">
-                                圓潤飽滿、黃金比例的手作蛋黃酥。香濃奶油酥皮襯托飽滿鹹蛋黃與細緻綿密紅豆沙，大方典雅，為家人相聚的時光溫柔留香。
+                                圓潤飽滿、黃金比例的手作蛋黃酥。香濃酥皮襯托飽滿鹹蛋黃與細緻綿密紅豆沙，大方典雅，為家人相聚的時光溫柔留香。
                             </p>
                             <p class="text-xs text-sleep-800 font-semibold font-mono">
                                 單價: <span id="price8Text" class="text-sm">NT$ 420</span> (原價 NT$ 480)
@@ -256,8 +256,8 @@
                             <span class="text-lg">📍</span>
                             <div>
                                 <p class="font-bold">自取地點：全家便利商店 台中中泰店</p>
-                                <p class="text-sleep-600 text-[11px] mt-0.5">地址：406 台中市北屯區中清路二段409號、411號</p>
-                                <p class="text-sleep-600 text-[11px]">說明：請於指定取貨日 13:00 - 20:00 前往門市取件，現場出示訂購姓名與電話核對即可。</p>
+                                <p class="text-sleep-600 text-[11px] mt-0.5">地址：406 台中市北屯區中清路二段409號</p>
+                                <p class="text-sleep-600 text-[11px]">說明：請於指定取貨日 13:00 - 20:00 前往取件，現場出示訂購姓名與電話核對即可。</p>
                             </div>
                         </div>
                         <div class="w-full h-48 rounded-lg overflow-hidden border border-sleep-200 bg-white relative">
@@ -827,7 +827,7 @@
 
             let logisticsDetail = "";
             if (data.method === 'pickup') {
-                logisticsDetail = "自取 (全家中態店)\n取貨地址：台中市北屯區中清路二段409號、411號";
+                logisticsDetail = "自取 (全家中泰店)\n取貨地址：台中市北屯區中清路二段409號";
             } else {
                 const city = document.getElementById('citySelect').value;
                 const dist = document.getElementById('districtSelect').value;
@@ -906,7 +906,7 @@
             let logisticsInfo = "";
 
             if (!isShipping) {
-                logisticsInfo = "自取 (全家中態店)";
+                logisticsInfo = "自取 (全家中泰店)";
             } else {
                 const citySel = document.getElementById('citySelect');
                 const distSel = document.getElementById('districtSelect');
