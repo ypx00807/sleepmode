@@ -150,7 +150,7 @@
                             <p class="text-[10px] text-sleep-600 mt-1">※ 系統依今日日期自動鎖定，保障您的早鳥訂購權益。</p>
                         </div>
 
-                        <!-- Target Delivery/Pickup Date (含 8/17~9/24 雙向硬性校正) -->
+                        <!-- Target Delivery/Pickup Date -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
                                 <label for="deliveryDate" class="block text-xs font-bold text-sleep-800">預期出貨 / 自取日期 <span class="text-red-500">*</span></label>
@@ -252,7 +252,7 @@
                         </div>
                     </div>
 
-                    <!-- Conditional Panel 1: Pickup Details with Map -->
+                    <!-- Conditional Panel 1: Pickup Details with Map (Mobile Compatible Embed + Direct App Button) -->
                     <div id="panelPickup" class="space-y-3 bg-sleep-100/60 rounded-xl p-4 border border-sleep-200/60">
                         <div class="flex items-start space-x-2 text-xs text-sleep-800 leading-relaxed">
                             <span class="text-lg">📍</span>
@@ -263,16 +263,21 @@
                             </div>
                         </div>
                         <!-- Embedded Google Map Frame -->
-                        <div class="w-full h-44 rounded-lg overflow-hidden border border-sleep-200 bg-sleep-200">
+                        <div class="w-full h-48 rounded-lg overflow-hidden border border-sleep-200 bg-white relative">
                             <iframe 
                                 class="w-full h-full border-0"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.1601662916664!2d120.65935397593256!3d24.1661109727402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691630c7662c1b%3A0xc3fa5e9b3ee49ff0!2zNDA25Y-w5Lit5biC5YyX5YGv5Y2A5Lit5riF6Lev5LqM6KeyNDA56Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000"
+                                src="https://maps.google.com/maps?q=台中市北屯區中清路二段409號&output=embed"
                                 allowfullscreen="" 
                                 loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                onerror="this.outerHTML='<div class="w-full h-full flex items-center justify-center text-xs text-sleep-600 bg-sleep-200 p-4">地圖載入中，取貨地址：台中市北屯區中清路二段409號 全家中泰店</div>'">
+                                referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                         </div>
+                        <!-- Direct Link to Open Mobile Maps App -->
+                        <a href="https://www.google.com/maps/search/?api=1&query=台中市北屯區中清路二段409號全家中態店" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full bg-white hover:bg-sleep-100 text-sleep-800 border border-sleep-300 rounded-xl py-2 px-3 text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-sm">
+                            <span>🗺️</span> 在 Google 地圖開啟門市地圖與導航
+                        </a>
                     </div>
 
                     <!-- Conditional Panel 2: Delivery Selector -->
@@ -671,13 +676,13 @@
             const selectedVal = dateInput.value;
 
             if (selectedVal && selectedVal < "2026-08-17") {
-                dateInput.value = "2026-08-17"; // 強制校正跳回 8/17
+                dateInput.value = "2026-08-17"; 
                 dateInput.classList.add('input-error');
                 if (errHint) errHint.classList.remove('hidden');
                 showToast("⚠️ 開放取貨日期為 2026/08/17 起，已自動調整為 8/17。");
                 return false;
             } else if (selectedVal && selectedVal > "2026-09-24") {
-                dateInput.value = "2026-09-24"; // 強制校正跳回 9/24
+                dateInput.value = "2026-09-24"; 
                 dateInput.classList.add('input-error');
                 if (errHint) errHint.classList.remove('hidden');
                 showToast("⚠️ 最晚取貨日期為 2026/09/24，已自動調整為 9/24。");
@@ -890,7 +895,7 @@
 
             let logisticsDetail = "";
             if (data.method === 'pickup') {
-                logisticsDetail = "自取 (全家中泰店)\n取貨地址：台中市北屯區中清路二段409號、411號";
+                logisticsDetail = "自取 (全家中態店)\n取貨地址：台中市北屯區中清路二段409號、411號";
             } else {
                 const city = document.getElementById('citySelect').value;
                 const dist = document.getElementById('districtSelect').value;
