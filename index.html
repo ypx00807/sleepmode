@@ -150,10 +150,14 @@
                             <p class="text-[10px] text-sleep-600 mt-1">※ 系統依今日日期自動鎖定，保障您的早鳥訂購權益。</p>
                         </div>
 
-                        <!-- Target Delivery/Pickup Date -->
+                        <!-- Target Delivery/Pickup Date (加上 onchange 即時防呆機制) -->
                         <div>
-                            <label class="block text-xs font-bold text-sleep-800 mb-1">預期出貨 / 自取日期 <span class="text-red-500">*</span></label>
+                            <div class="flex justify-between items-center mb-1">
+                                <label for="deliveryDate" class="block text-xs font-bold text-sleep-800">預期出貨 / 自取日期 <span class="text-red-500">*</span></label>
+                                <span id="deliveryDateErr" class="text-[10px] text-red-500 hidden">⚠️ 日期須為 8/17 起</span>
+                            </div>
                             <input type="date" id="deliveryDate" min="2026-08-17" max="2026-09-24" value="2026-08-17" required
+                                   onchange="validateDeliveryDate();"
                                    class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono transition-all">
                             <p class="text-[10px] text-sleep-600 mt-1">※ 開放取貨日期為 2026/08/17 起。供備貨排單使用，不影響早鳥價格判定。</p>
                         </div>
@@ -660,6 +664,25 @@
             }, 3500);
         }
 
+        // --- HARDVALIDATE DELIVERY DATE (針對手機 Safari 滾輪問題) ---
+        function validateDeliveryDate() {
+            const dateInput = document.getElementById('deliveryDate');
+            const errHint = document.getElementById('deliveryDateErr');
+            const selectedVal = dateInput.value;
+
+            if (selectedVal && selectedVal < "2026-08-17") {
+                dateInput.value = "2026-08-17"; // 強制校正跳回 8/17
+                dateInput.classList.add('input-error');
+                if (errHint) errHint.classList.remove('hidden');
+                showToast("⚠️ 開放取貨日期為 2026/08/17 起，已自動調整為 8/17。");
+                return false;
+            } else {
+                dateInput.classList.remove('input-error');
+                if (errHint) errHint.classList.add('hidden');
+                return true;
+            }
+        }
+
         // --- CLEAR FIELD ERROR STYLES ---
         function clearError(inputId, errHintId) {
             const elem = document.getElementById(inputId);
@@ -673,7 +696,7 @@
             inputs.forEach(i => i.classList.remove('input-error'));
             document.getElementById('productCatalogSection').classList.remove('input-error');
             
-            const hints = ['qtyErrHint', 'custNameErr', 'custPhoneErr', 'cityErr', 'distErr', 'addressErr'];
+            const hints = ['qtyErrHint', 'custNameErr', 'custPhoneErr', 'cityErr', 'distErr', 'addressErr', 'deliveryDateErr'];
             hints.forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add('hidden');
@@ -909,6 +932,12 @@
             const data = getCalculatedData();
             let firstErrorElem = null;
 
+            // 0. 硬性檢查取貨日期是否小於 8/17
+            if (!validateDeliveryDate()) {
+                const dateElem = document.getElementById('deliveryDate');
+                if (!firstErrorElem) firstErrorElem = dateElem;
+            }
+
             // 1. 檢查禮盒數量
             if (data.qty6 === 0 && data.qty8 === 0) {
                 const catalog = document.getElementById('productCatalogSection');
@@ -970,10 +999,10 @@
                 logisticsInfo = `${zip ? `[${zip}] ` : ""}${city}${dist}${street}`;
             }
 
-            // 若有欄位未填寫：自動平滑滾動至第一個錯誤欄位並提示
+            // 若有欄位未填寫或日期不合法：自動平滑滾動至第一個錯誤欄位並提示
             if (firstErrorElem) {
                 firstErrorElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                showToast("⚠️ 有欄位尚未填寫完整，請確認紅框標示處。");
+                showToast("⚠️ 有欄位尚未填寫完整或日期不正確，請確認紅框標示處。");
                 return;
             }
 
