@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026中秋限量禮盒訂購單 - 休眠模式 Sleep Mode</title>
+    <!-- Google Fonts: Noto Serif TC and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sleep: {
+                            50: '#FAF8F5',   /* 奶油白/淺米 */
+                            100: '#F5F2EB',  /* 燕麥色主調 */
+                            200: '#EAE5DB',  /* 暖沙色邊框 */
+                            300: '#DFD9CE',  /* 淺焙茶灰 */
+                            600: '#8C7765',  /* 柔和沙棕 */
+                            800: '#6B4423',  /* 烘焙栗子/可可暖棕 */
+                            900: '#4D2F17'   /* 深可可 */
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Noto Serif TC', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EAE5DB;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DFD9CE;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #6B4423 !important;
+            box-shadow: 0 0 0 2px rgba(107, 68, 35, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-sleep-100 text-sleep-800 font-sans min-h-screen antialiased flex flex-col justify-between selection:bg-sleep-200">
+
+    <!-- Header Area: Left-aligned, Compact and Cozy -->
+    <header class="bg-sleep-50/90 backdrop-blur-md border-b border-sleep-200 sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-4xl mx-auto px-4 py-3 sm:py-4 flex flex-row items-center justify-between">
+            <!-- Brand Logo & Title on the Left -->
+            <div class="flex items-center space-x-3 text-left">
+                <!-- Brand Logo: Reads logo.png automatically -->
+                <div class="w-10 h-10 rounded-full border border-sleep-200 overflow-hidden bg-sleep-100 flex items-center justify-center shrink-0">
+                    <img id="brandLogoImage" src="logo.png" alt="Sleep Mode Logo" class="w-full h-full object-cover" onerror="this.classList.add('hidden'); document.getElementById('defaultLogo').classList.remove('hidden');">
+                    <svg id="defaultLogo" class="w-6 h-6 text-sleep-800 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </div>
+                
+                <div>
+                    <h1 class="text-base sm:text-lg font-bold font-serif tracking-wider text-sleep-800 flex items-center gap-1.5">
+                        休眠模式 <span class="text-xs font-normal font-sans opacity-60">Sleep Mode</span>
+                    </h1>
+                    <p class="text-[10px] text-sleep-600 tracking-tight">希望進入休眠模式的你，能找回最初的自己。</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-4xl w-full mx-auto px-4 py-6 flex-grow">
+        <!-- Banner and Intro -->
+        <section class="mb-8 text-left">
+            <h2 class="text-xl sm:text-2xl font-bold font-serif text-sleep-800 tracking-wide mb-3 flex items-center gap-2">
+                🌕 2026中秋限量禮盒訂購單
+            </h2>
+            <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200/60 space-y-3 shadow-sm">
+                <p class="text-xs sm:text-sm text-sleep-800 leading-relaxed font-serif italic">
+                    「Mid-Autumn Sleep Mode」<br>
+                    月亮升起，思念也慢慢發酵。
+                </p>
+                
+                <!-- Promotional Tiers Details -->
+                <div class="pt-3 border-t border-sleep-200/60 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-sleep-600">
+                    <div class="space-y-1">
+                        <p class="font-bold text-sleep-800 flex items-center gap-1">
+                            <span>🌕</span> 即日起至 2026/08/31 止（早鳥優惠）
+                        </p>
+                        <p class="pl-4">• 六入裝禮盒：早鳥價 <span class="text-sleep-800 font-bold">330 元</span> / 盒 (原價 360元)</p>
+                        <p class="pl-4">• 八入裝禮盒：早鳥價 <span class="text-sleep-800 font-bold">420 元</span> / 盒 (原價 480元)</p>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold text-sleep-800 flex items-center gap-1">
+                            <span>🍂</span> 2026/09/01 - 2026/09/18（原價訂購）
+                        </p>
+                        <p class="pl-4">• 六入裝禮盒：原價 <span class="text-sleep-800 font-bold">360 元</span> / 盒</p>
+                        <p class="pl-4">• 八入裝禮盒：原價 <span class="text-sleep-800 font-bold">480 元</span> / 盒</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Order Form & Interactive Items -->
+        <form id="orderForm" onsubmit="handlePreSubmit(event);" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Left & Middle: Input Areas -->
+            <div class="md:col-span-2 space-y-6">
+                
+                <!-- Section 1: Dynamic Date Auto-Determination -->
+                <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left">
+                    <h3 class="text-sm font-bold font-serif text-sleep-800 mb-3 flex items-center gap-2">
+                        <span class="w-1.5 h-3 bg-sleep-800 rounded-full"></span>
+                        一、訂購資訊與日期判定
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Order Date -->
+                        <div>
+                            <label class="block text-xs font-bold text-sleep-600 mb-1">今日訂購日期</label>
+                            <div class="bg-sleep-200/50 border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono font-bold flex justify-between items-center">
+                                <span id="displayOrderDate">載入中...</span>
+                                <span id="promoBadge" class="bg-sleep-800 text-white text-[10px] px-2 py-0.5 rounded font-sans font-normal">早鳥優惠中</span>
+                            </div>
+                            <p class="text-[10px] text-sleep-600 mt-1">※ 系統依今日日期自動鎖定，保障您的早鳥訂購權益。</p>
+                        </div>
+
+                        <!-- Target Delivery/Pickup Date -->
+                        <div>
+                            <label class="block text-xs font-bold text-sleep-800 mb-1">預期出貨 / 自取日期</label>
+                            <input type="date" id="deliveryDate" min="2026-08-17" max="2026-09-24" value="2026-09-15" required
+                                   class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono">
+                            <p class="text-[10px] text-sleep-600 mt-1">※ 最終訂購截止日為 2026/09/18。供備貨排單使用，不影響早鳥價格判定。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Product Catalog -->
+                <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left space-y-4">
+                    <h3 class="text-sm font-bold font-serif text-sleep-800 flex items-center gap-2">
+                        <span class="w-1.5 h-3 bg-sleep-800 rounded-full"></span>
+                        二、選擇中秋限量禮盒品項
+                    </h3>
+
+                    <!-- Item 1: 6-pack -->
+                    <div class="border-b border-sleep-200/60 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div class="space-y-1 max-w-sm">
+                            <h4 class="text-sm font-bold text-sleep-800 font-serif">六入裝蛋黃酥禮盒</h4>
+                            <p class="text-xs text-sleep-600 leading-relaxed">
+                                使用精選在地紅土鹹蛋黃，包裹在溫潤經典的烏豆沙之中。外皮千層酥脆，烤箱出爐時溢滿純粹的紅豆沙與奶油烘焙溫香。
+                            </p>
+                            <p class="text-xs text-sleep-800 font-semibold font-mono">
+                                單價: <span id="price6Text" class="text-sm">NT$ 330</span> (原價 NT$ 360)
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-2 self-end sm:self-center">
+                            <button type="button" onclick="adjustQty('qty6', -1)" class="w-8 h-8 rounded-full border border-sleep-200 hover:border-sleep-800 flex items-center justify-center font-bold text-sleep-800 bg-white hover:bg-sleep-100 transition-colors">-</button>
+                            <input type="number" id="qty6" value="0" min="0" max="99" onchange="calculateTotal()" class="w-12 text-center bg-white border border-sleep-200 rounded-lg py-1 text-sm font-bold font-mono">
+                            <button type="button" onclick="adjustQty('qty6', 1)" class="w-8 h-8 rounded-full border border-sleep-200 hover:border-sleep-800 flex items-center justify-center font-bold text-sleep-800 bg-white hover:bg-sleep-100 transition-colors">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: 8-pack -->
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                        <div class="space-y-1 max-w-sm">
+                            <h4 class="text-sm font-bold text-sleep-800 font-serif">八入裝蛋黃酥禮盒</h4>
+                            <p class="text-xs text-sleep-600 leading-relaxed">
+                                圓潤飽滿、黃金比例的手作蛋黃酥。香濃酥皮襯托飽滿鹹蛋黃與細緻綿密紅豆沙，大方典雅，為家人相聚的時光溫柔留香。
+                            </p>
+                            <p class="text-xs text-sleep-800 font-semibold font-mono">
+                                單價: <span id="price8Text" class="text-sm">NT$ 420</span> (原價 NT$ 480)
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-2 self-end sm:self-center">
+                            <button type="button" onclick="adjustQty('qty8', -1)" class="w-8 h-8 rounded-full border border-sleep-200 hover:border-sleep-800 flex items-center justify-center font-bold text-sleep-800 bg-white hover:bg-sleep-100 transition-colors">-</button>
+                            <input type="number" id="qty8" value="0" min="0" max="99" onchange="calculateTotal()" class="w-12 text-center bg-white border border-sleep-200 rounded-lg py-1 text-sm font-bold font-mono">
+                            <button type="button" onclick="adjustQty('qty8', 1)" class="w-8 h-8 rounded-full border border-sleep-200 hover:border-sleep-800 flex items-center justify-center font-bold text-sleep-800 bg-white hover:bg-sleep-100 transition-colors">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Fulfillment & Customer Info -->
+                <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left space-y-4">
+                    <h3 class="text-sm font-bold font-serif text-sleep-800 flex items-center gap-2">
+                        <span class="w-1.5 h-3 bg-sleep-800 rounded-full"></span>
+                        三、物流與聯絡資訊
+                    </h3>
+
+                    <!-- Logistics Method Selector -->
+                    <div class="grid grid-cols-2 gap-3 pb-2">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="deliveryMethod" value="pickup" checked onchange="toggleDeliveryMethod()" class="sr-only peer">
+                            <div class="text-center p-3 rounded-xl border border-sleep-200 bg-white text-sleep-800 text-xs font-bold peer-checked:border-sleep-800 peer-checked:bg-sleep-800 peer-checked:text-white transition-all shadow-sm">
+                                🏪 自取 (全家中泰店)
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="deliveryMethod" value="shipping" onchange="toggleDeliveryMethod()" class="sr-only peer">
+                            <div class="text-center p-3 rounded-xl border border-sleep-200 bg-white text-sleep-800 text-xs font-bold peer-checked:border-sleep-800 peer-checked:bg-sleep-800 peer-checked:text-white transition-all shadow-sm">
+                                🚚 常溫宅配到府
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div>
+                            <label for="custName" class="block text-xs font-bold text-sleep-800 mb-1">訂購人姓名</label>
+                            <input type="text" id="custName" required placeholder="如：休眠模式" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800">
+                        </div>
+                        <div>
+                            <label for="custPhone" class="block text-xs font-bold text-sleep-800 mb-1">聯絡電話</label>
+                            <input type="tel" id="custPhone" required placeholder="如：0912-345678" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono">
+                        </div>
+                    </div>
+
+                    <!-- Conditional Panel 1: Pickup Details with Map -->
+                    <div id="panelPickup" class="space-y-3 bg-sleep-100/60 rounded-xl p-4 border border-sleep-200/60">
+                        <div class="flex items-start space-x-2 text-xs text-sleep-800 leading-relaxed">
+                            <span class="text-lg">📍</span>
+                            <div>
+                                <p class="font-bold">自取地點：全家便利商店 台中中泰店</p>
+                                <p class="text-sleep-600 text-[11px] mt-0.5">地址：406 台中市北屯區中清路二段409號、411號</p>
+                                <p class="text-sleep-600 text-[11px]">說明：請於指定取貨日 13:00 - 20:00 前往門市取件，現場出示訂購姓名與電話核對即可。</p>
+                            </div>
+                        </div>
+                        <!-- Embedded Google Map Frame -->
+                        <div class="w-full h-44 rounded-lg overflow-hidden border border-sleep-200 bg-sleep-200">
+                            <iframe 
+                                class="w-full h-full border-0"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.1601662916664!2d120.65935397593256!3d24.1661109727402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34691630c7662c1b%3A0xc3fa5e9b3ee49ff0!2zNDA25Y-w5Lit5biC5YyX5YGv5Y2A5Lit5riF6Lev5LqM6KeyNDA56Jmf!5e0!3m2!1szh-TW!2stw!4v1700000000000"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                onerror="this.outerHTML='<div class="w-full h-full flex items-center justify-center text-xs text-sleep-600 bg-sleep-200 p-4">地圖載入中，取貨地址：台中市北屯區中清路二段409號 全家中泰店</div>'">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Conditional Panel 2: Delivery Selector -->
+                    <div id="panelShipping" class="space-y-3 bg-sleep-100/60 rounded-xl p-4 border border-sleep-200/60 hidden">
+                        <p class="text-[11px] text-sleep-600 mb-2 leading-relaxed">
+                            📦 <strong>常溫宅配運費計算：</strong><br>
+                            1 ~ 2 盒：140 元 | 3 ~ 5 盒：170 元 | 6 ~ 10 盒：210 元。<br>
+                            訂購商品總金額滿 <strong>3,000 元</strong> 即享免運費。
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <!-- City -->
+                            <div>
+                                <label class="block text-xs font-bold text-sleep-800 mb-1">縣市</label>
+                                <select id="citySelect" onchange="onCityChange()" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800">
+                                    <option value="">選擇縣市</option>
+                                </select>
+                            </div>
+                            <!-- District -->
+                            <div>
+                                <label class="block text-xs font-bold text-sleep-800 mb-1">鄉鎮市區</label>
+                                <select id="districtSelect" onchange="onDistrictChange()" class="w-full bg-white border border-sleep-200 rounded-lg px-2 py-1.5 text-xs text-sleep-800">
+                                    <option value="">選擇鄉鎮區</option>
+                                </select>
+                            </div>
+                            <!-- Zipcode -->
+                            <div>
+                                <label class="block text-xs font-bold text-sleep-600 mb-1">郵遞區號</label>
+                                <input type="text" id="zipcodeInput" readonly class="w-full bg-sleep-200/50 border border-sleep-200 rounded-lg px-3 py-1.5 text-xs text-sleep-800 font-mono font-bold" placeholder="自動帶入">
+                            </div>
+                        </div>
+
+                        <!-- Street address line -->
+                        <div>
+                            <label class="block text-xs font-bold text-sleep-800 mb-1">收件詳細地址</label>
+                            <input type="text" id="shippingAddress" placeholder="請填寫道路名稱、樓層門牌等資料" class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-xs text-sleep-800">
+                        </div>
+                    </div>
+
+                    <!-- Constant Material Warning Disclaimer -->
+                    <p class="text-[10px] text-sleep-600/90 leading-relaxed bg-white/60 p-3 rounded-lg border border-sleep-200/40">
+                        ※ 禮盒皆依包裹材積計算運費。若訂購內容需調整出貨箱數或運費，我們會於出貨前主動與您確認後再安排出貨，確保雙方資訊一致，謝謝您的理解。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right: Bill Summary Column (Sticky Sidebar) -->
+            <div class="space-y-4">
+                <div class="bg-sleep-50 rounded-2xl p-5 border border-sleep-200 shadow-sm text-left md:sticky md:top-24 space-y-4">
+                    <div>
+                        <h3 class="text-sm font-bold font-serif text-sleep-800 pb-3 border-b border-sleep-200 mb-3 flex items-center justify-between">
+                            <span>📋 即時預算單</span>
+                            <span class="text-[10px] font-sans font-normal opacity-60">自動加總</span>
+                        </h3>
+
+                        <!-- Detail calculation lists -->
+                        <div class="space-y-2.5 text-xs text-sleep-800">
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">六入蛋黃酥數量</span>
+                                <span id="billQty6" class="font-mono font-bold">0 盒</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">六入小計</span>
+                                <span id="billSub6" class="font-mono font-bold">NT$ 0</span>
+                            </div>
+                            <div class="border-t border-sleep-200/40 my-1"></div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">八入蛋黃酥數量</span>
+                                <span id="billQty8" class="font-mono font-bold">0 盒</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">八入小計</span>
+                                <span id="billSub8" class="font-mono font-bold">NT$ 0</span>
+                            </div>
+                            <div class="border-t border-sleep-200/40 my-1"></div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">累計總盒數</span>
+                                <span id="billTotalBoxes" class="font-mono font-bold">0 盒</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">物流派送方式</span>
+                                <span id="billLogisticsName" class="font-bold">自取 (免運)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sleep-600">運費小計</span>
+                                <span id="billShippingFee" class="font-mono font-bold">NT$ 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Large Overall Total -->
+                        <div class="border-t border-sleep-200 pt-3 mt-3 flex justify-between items-baseline">
+                            <span class="text-xs font-bold text-sleep-800">應付總金額</span>
+                            <span id="billGrandTotal" class="text-lg sm:text-2xl font-mono font-bold text-sleep-800">NT$ 0</span>
+                        </div>
+
+                        <!-- Free Shipping Status Notification -->
+                        <div id="shippingPromoText" class="mt-2 text-[10px] text-center p-2 rounded-lg bg-sleep-200/50 text-sleep-800 font-medium">
+                            滿 3,000 元即可享受常溫免運費
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer Information Section -->
+                    <div class="bg-sleep-100 rounded-xl p-3.5 border-2 border-sleep-300 space-y-2 text-xs relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-sleep-200 pb-1.5">
+                            <h4 class="font-bold font-serif text-sleep-800 flex items-center gap-1">
+                                <span>🏦</span> 匯款帳號資訊
+                            </h4>
+                            <span class="bg-sleep-800 text-white text-[9px] px-1.5 py-0.5 rounded font-sans">對帳步驟</span>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-sleep-600">銀行：<span class="text-sleep-800 font-medium">國泰世華銀行 (013)</span></p>
+                            <div class="flex items-center justify-between">
+                                <p class="text-sleep-600">帳號：<span class="text-sleep-800 font-mono font-bold text-sm tracking-wider">233700014899</span></p>
+                                <button type="button" onclick="copyBankAccount()" class="text-[10px] bg-white border border-sleep-300 hover:border-sleep-800 px-2 py-0.5 rounded transition-all text-sleep-800">
+                                    複製帳號
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-[10px] text-sleep-600 pt-1 leading-normal border-t border-sleep-200/60">
+                            💡 <strong>下單 3 步驟：</strong><br>
+                            1. 點擊下方「確認送出訂購單」<br>
+                            2. 轉帳完成應付金額<br>
+                            3. 前往 LINE 貼上明細並告知帳號末五碼！
+                        </p>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="space-y-2">
+                        <button type="submit" class="w-full bg-sleep-800 hover:bg-sleep-900 text-white font-serif rounded-xl py-3.5 text-sm font-bold tracking-widest transition-all shadow-md hover:shadow-lg active:scale-[0.98] flex items-center justify-center gap-1.5">
+                            <span>🕊️</span> 確認送出訂購單
+                        </button>
+                        <button type="button" onclick="copyToLineFormat()" class="w-full bg-sleep-200 hover:bg-sleep-300 text-sleep-800 font-sans rounded-xl py-2.5 text-xs font-bold tracking-wider transition-all border border-sleep-300 active:scale-[0.98]">
+                            📋 手動複製 LINE 回傳格式
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- CUSTOMER PRE-CONFIRMATION MODAL -->
+    <div id="confirmOrderModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-sleep-50 border border-sleep-200 rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden text-left space-y-4">
+            <div class="bg-sleep-800 text-sleep-50 px-5 py-4 flex items-center justify-between">
+                <h3 class="font-serif font-bold tracking-wider text-sm sm:text-base flex items-center gap-2">
+                    <span>🌕</span> 請確認您的訂購資訊
+                </h3>
+                <button type="button" onclick="closeConfirmModal()" class="text-sleep-50/70 hover:text-sleep-50 text-xl font-sans">&times;</button>
+            </div>
+            
+            <div class="px-6 py-2 space-y-3 text-xs text-sleep-800">
+                <p class="text-[11px] text-sleep-600 leading-relaxed border-b border-sleep-200 pb-2">
+                    請再次核對下方訂購明細與聯絡資料，確認無誤後點擊「確認無誤，送出訂單」。
+                </p>
+
+                <div class="bg-sleep-100/70 rounded-xl p-3 border border-sleep-200 space-y-2">
+                    <div class="grid grid-cols-2 gap-2">
+                        <p><span class="text-sleep-600">訂購姓名：</span><strong id="confirmCustName" class="font-sans"></strong></p>
+                        <p><span class="text-sleep-600">聯絡電話：</span><strong id="confirmCustPhone" class="font-mono"></strong></p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <p><span class="text-sleep-600">訂購日期：</span><strong id="confirmOrderDate" class="font-mono"></strong></p>
+                        <p><span class="text-sleep-600">預期出/取貨日：</span><strong id="confirmDeliveryDate" class="font-mono"></strong></p>
+                    </div>
+                    <div class="border-t border-sleep-200/60 my-1"></div>
+                    <div>
+                        <p class="text-sleep-600 mb-1">訂購禮盒品項：</p>
+                        <ul id="confirmItemsList" class="pl-3 space-y-1 font-medium text-sleep-900"></ul>
+                    </div>
+                    <div class="border-t border-sleep-200/60 my-1"></div>
+                    <div>
+                        <p><span class="text-sleep-600">物流方式：</span><strong id="confirmLogisticsMethod" class="font-sans"></strong></p>
+                        <p id="confirmAddressRow" class="mt-0.5"><span class="text-sleep-600">配送地址：</span><span id="confirmAddressText" class="font-sans text-sleep-900"></span></p>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-baseline pt-1">
+                    <span class="font-bold text-xs">應付總金額（含運費）：</span>
+                    <span id="confirmGrandTotal" class="text-xl font-mono font-bold text-sleep-800"></span>
+                </div>
+            </div>
+
+            <div class="px-6 pb-5 pt-2 flex gap-3">
+                <button type="button" onclick="closeConfirmModal()" class="w-1/3 bg-white hover:bg-sleep-100 text-sleep-800 border border-sleep-300 font-sans rounded-xl py-2.5 text-xs font-bold transition-all">
+                    ← 返回修改
+                </button>
+                <button type="button" onclick="finalExecuteSubmitOrder()" class="w-2/3 bg-sleep-800 hover:bg-sleep-900 text-white font-serif rounded-xl py-2.5 text-xs font-bold tracking-widest transition-all shadow-md active:scale-[0.98]">
+                    ✨ 確認無誤，送出訂單
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS & PAYMENT GUIDANCE MODAL (WITH CLOSE BUTTON) -->
+    <div id="orderSuccessModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-sleep-50 border-2 border-sleep-800 rounded-2xl w-full max-w-md shadow-2xl overflow-hidden text-left space-y-4 relative">
+            <!-- Header Banner with Close Button -->
+            <div class="bg-sleep-800 text-white p-5 text-center space-y-1 relative">
+                <button type="button" onclick="closeSuccessModal()" class="absolute top-3 right-4 text-white/70 hover:text-white text-2xl font-sans leading-none">&times;</button>
+                <div class="text-3xl mb-1">✨ 🌕 ✨</div>
+                <h3 class="font-serif font-bold text-lg tracking-wider">訂購單已成功送出！</h3>
+                <p class="text-xs opacity-90 font-sans">請完成最後的對帳步驟，我們將為您安排排單備貨</p>
+            </div>
+
+            <!-- Content Area -->
+            <div class="px-6 py-2 space-y-4 text-xs text-sleep-800">
+                <!-- Step 1: Bank Transfer -->
+                <div class="bg-white rounded-xl p-3.5 border border-sleep-200 space-y-2 shadow-sm">
+                    <div class="flex items-center gap-1.5 text-sleep-800 font-bold border-b border-sleep-200 pb-1.5">
+                        <span class="bg-sleep-800 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-mono">1</span>
+                        <span>完成匯款轉帳</span>
+                    </div>
+                    <div class="text-xs space-y-1 font-sans">
+                        <p class="text-sleep-600">銀行：<span class="text-sleep-800 font-medium">國泰世華銀行 (013)</span></p>
+                        <p class="text-sleep-600">帳號：<span class="text-sleep-800 font-mono font-bold text-sm tracking-wider">233700014899</span></p>
+                        <p class="text-sleep-600">應付金額：<span id="successModalTotal" class="text-sleep-800 font-mono font-bold text-sm"></span></p>
+                    </div>
+                    <button type="button" onclick="copyBankAccount()" class="w-full bg-sleep-100 hover:bg-sleep-200 text-sleep-800 border border-sleep-300 py-1.5 rounded-lg text-xs font-bold transition-all">
+                        📋 複製國泰世華匯款帳號
+                    </button>
+                </div>
+
+                <!-- Step 2: Return to LINE -->
+                <div class="bg-white rounded-xl p-3.5 border border-sleep-200 space-y-2 shadow-sm">
+                    <div class="flex items-center gap-1.5 text-sleep-800 font-bold border-b border-sleep-200 pb-1.5">
+                        <span class="bg-sleep-800 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-mono">2</span>
+                        <span>前往 LINE 私訊回傳對帳明細</span>
+                    </div>
+                    <p class="text-[11px] text-sleep-600 leading-relaxed">
+                        系統已**自動複製您的訂購明細**！請直接前往 LINE 私訊小編，貼上訊息並填寫您的**轉帳帳號末五碼**即完成對帳！
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="px-6 pb-6 space-y-2">
+                <button type="button" onclick="copyToLineFormat(); showToast('明細已複製！可貼至 LINE 對帳'); closeSuccessModal();" class="w-full bg-sleep-800 hover:bg-sleep-900 text-white font-serif rounded-xl py-3 text-xs font-bold tracking-widest transition-all shadow-md active:scale-[0.98] flex items-center justify-center gap-1.5">
+                    <span>💬</span> 複製明細並關閉視窗
+                </button>
+                <p class="text-[9px] text-center text-sleep-600">感謝您的訂購，期待用甜點陪伴您共度秋夜。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Floating Modal (Hidden from public eye) -->
+    <div id="adminModal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-sleep-50 border border-sleep-200 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden text-left">
+            <div class="bg-sleep-800 text-sleep-50 px-5 py-4 flex items-center justify-between">
+                <h3 class="font-serif font-bold tracking-wider text-sm sm:text-base flex items-center gap-2">
+                    <span>🔒</span> 品牌管理員後台清單
+                </h3>
+                <button type="button" onclick="closeAdminBackend()" class="text-sleep-50/70 hover:text-sleep-50 text-xl font-sans">&times;</button>
+            </div>
+            
+            <div class="p-5 flex-grow overflow-y-auto space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-2 border-b border-sleep-200 pb-3">
+                    <p class="text-xs text-sleep-600">此面板收集本機快取數據，即時載入顧客於此網頁成功提交的最新中秋接單明細。</p>
+                    <div class="flex space-x-2">
+                        <button type="button" onclick="exportOrdersToCSV()" class="text-xs bg-white border border-sleep-600 text-sleep-800 px-3 py-1.5 rounded-lg hover:bg-sleep-100 transition-colors font-medium">
+                            匯出 Excel (CSV)
+                        </button>
+                        <button type="button" onclick="clearAllOrdersBackend()" class="text-xs bg-red-50 border border-red-200 text-red-700 px-3 py-1.5 rounded-lg hover:bg-red-100 transition-colors font-medium">
+                            清空所有訂單記錄
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto border border-sleep-200 rounded-xl bg-white">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-sleep-100/80 border-b border-sleep-200 font-serif text-sleep-800">
+                                <th class="p-3 whitespace-nowrap">訂單編號</th>
+                                <th class="p-3 whitespace-nowrap">顧客貴賓</th>
+                                <th class="p-3 whitespace-nowrap">聯絡電話</th>
+                                <th class="p-3 whitespace-nowrap">預期出/取貨日</th>
+                                <th class="p-3 whitespace-nowrap text-center">六入</th>
+                                <th class="p-3 whitespace-nowrap text-center">八入</th>
+                                <th class="p-3 whitespace-nowrap">物流與送貨地址</th>
+                                <th class="p-3 whitespace-nowrap text-right">總計金額</th>
+                                <th class="p-3 whitespace-nowrap text-center">訂單狀態</th>
+                            </tr>
+                        </thead>
+                        <tbody id="backendOrderTableBody">
+                            <tr>
+                                <td colspan="9" class="p-6 text-center text-sleep-600 italic">目前尚未收到任何中秋限量訂單明細。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cozy Toast Notification System -->
+    <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Footer Section -->
+    <footer class="bg-sleep-50/80 border-t border-sleep-200 py-6 text-center text-xs text-sleep-600 mt-12 space-y-1">
+        <div class="max-w-4xl mx-auto px-4 relative">
+            <p class="font-serif">「Sleep Mode｜讓甜點成為生活裡的休眠鍵。」</p>
+            <p class="text-[10px] opacity-75 mt-2">
+                © 2026 休眠模式 Sleep Mode. All Rights Reserved.
+                <span onclick="openAdminBackend()" class="text-transparent hover:text-sleep-600/40 cursor-pointer text-[9px] font-sans ml-1 transition-colors select-none">[Admin]</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // --- COMPLETE TAIWAN ALL CITIES & DISTRICTS DATABASE ---
+        const TW_ZIP_DATA = {
+            "台北市": { "中正區": "100", "大同區": "103", "中山區": "104", "松山區": "105", "大安區": "106", "萬華區": "108", "信義區": "110", "士林區": "111", "北投區": "112", "內湖區": "114", "南港區": "115", "文山區": "116" },
+            "新北市": { "板橋區": "220", "汐止區": "221", "深坑區": "222", "石碇區": "223", "瑞芳區": "224", "平溪區": "226", "雙溪區": "227", "貢寮區": "228", "新店區": "231", "坪林區": "232", "烏來區": "233", "永和區": "234", "中和區": "235", "土城區": "236", "三峽區": "237", "樹林區": "238", "鶯歌區": "239", "三重區": "241", "新莊區": "242", "泰山區": "243", "林口區": "244", "蘆洲區": "247", "五股區": "248", "八里區": "249", "淡水區": "251", "三芝區": "252", "石門區": "253", "金山區": "208", "萬里區": "207" },
+            "基隆市": { "仁愛區": "200", "信義區": "201", "中正區": "202", "中山區": "203", "安樂區": "204", "暖暖區": "205", "七堵區": "206" },
+            "桃園市": { "桃園區": "330", "中壢區": "320", "大溪區": "335", "楊梅區": "326", "蘆竹區": "338", "大園區": "337", "龜山區": "333", "八德區": "334", "龍潭區": "325", "平鎮區": "324", "新屋區": "327", "觀音區": "328", "復興區": "336" },
+            "新竹市": { "東區": "300", "北區": "300", "香山區": "300" },
+            "新竹縣": { "竹北市": "302", "竹東鎮": "310", "新埔鎮": "305", "關西鎮": "306", "湖口鄉": "303", "新豐鄉": "304", "芎林鄉": "307", "橫山鄉": "312", "北埔鄉": "314", "寶山鄉": "308", "俄眉鄉": "315", "尖石鄉": "313", "五峰鄉": "311" },
+            "苗栗縣": { "苗栗市": "360", "頭份市": "351", "竹南鎮": "350", "後龍鎮": "356", "通霄鎮": "358", "苑裡鎮": "357", "卓蘭鎮": "369", "造橋鄉": "361", "西湖鄉": "368", "頭屋鄉": "362", "公館鄉": "363", "銅鑼鄉": "366", "三義鄉": "367", "大湖鄉": "364", "獅潭鄉": "354", "三灣鄉": "352", "南庄鄉": "353", "泰安鄉": "365" },
+            "台中市": { "中區": "400", "東區": "401", "南區": "402", "西區": "403", "北區": "404", "北屯區": "406", "西屯區": "407", "南屯區": "408", "太平區": "411", "大里區": "412", "霧峰區": "413", "烏日區": "414", "豐原區": "420", "后里區": "421", "石岡區": "422", "東勢區": "423", "和平區": "424", "新社區": "426", "潭子區": "427", "大雅區": "428", "神岡區": "429", "大肚區": "432", "沙鹿區": "433", "龍井區": "434", "梧棲區": "435", "清水區": "436", "大甲區": "437", "外埔區": "438", "大安區": "439" },
+            "彰化縣": { "彰化市": "500", "員林市": "510", "鹿港鎮": "505", "和美鎮": "508", "北斗鎮": "521", "溪湖鎮": "514", "田中鎮": "520", "二林鎮": "526", "線西鄉": "507", "伸港鄉": "509", "福興鄉": "506", "秀水鄉": "504", "花壇鄉": "503", "芬園鄉": "502", "大村鄉": "515", "埔鹽鄉": "516", "埔心鄉": "513", "永靖鄉": "512", "社頭鄉": "511", "二水鄉": "530", "田尾鄉": "522", "埤頭鄉": "523", "芳苑鄉": "528", "大城鄉": "527", "竹塘鄉": "525", "溪州鄉": "524" },
+            "南投縣": { "南投市": "540", "埔里鎮": "545", "草屯鎮": "542", "竹山鎮": "557", "集集鎮": "552", "名間鄉": "551", "鹿谷鄉": "558", "中寮鄉": "541", "魚池鄉": "555", "國姓鄉": "544", "水里鄉": "553", "信義鄉": "556", "仁愛鄉": "546" },
+            "雲林縣": { "斗六市": "640", "斗南鎮": "630", "虎尾鎮": "632", "西螺鎮": "648", "土庫鎮": "633", "北港鎮": "651", "古坑鄉": "646", "大埤鄉": "631", "莿桐鄉": "647", "林內鄉": "643", "二崙鄉": "649", "崙背鄉": "637", "麥寮鄉": "638", "東勢鄉": "635", "褒忠鄉": "634", "臺西鄉": "636", "元長鄉": "655", "四湖鄉": "654", "口湖鄉": "653", "水林鄉": "652" },
+            "嘉義市": { "東區": "600", "西區": "600" },
+            "嘉義縣": { "太保市": "612", "朴子市": "613", "布袋鎮": "615", "大林鎮": "622", "民雄鄉": "621", "溪口鄉": "623", "新港鄉": "616", "六腳鄉": "615", "東石鄉": "614", "義竹鄉": "624", "鹿草鄉": "611", "水上鄉": "608", "中埔鄉": "606", "竹崎鄉": "604", "梅山鄉": "603", "番路鄉": "602", "大埔鄉": "607", "阿里山鄉": "605" },
+            "台南市": { "中西區": "700", "東區": "701", "南區": "702", "北區": "704", "安平區": "708", "安南區": "709", "永康區": "710", "歸仁區": "711", "新化區": "712", "左鎮區": "713", "玉井區": "714", "楠西區": "715", "南化區": "716", "仁德區": "717", "關廟區": "718", "龍崎區": "719", "官田區": "720", "麻豆區": "721", "佳里區": "722", "西港區": "723", "七股區": "724", "將軍區": "725", "學甲區": "726", "北門區": "727", "新營區": "730", "後壁區": "731", "白河區": "732", "東山區": "733", "六甲區": "734", "下營區": "735", "柳營區": "736", "鹽水區": "737", "善化區": "741", "大內區": "742", "山上區": "743", "新市區": "744", "安定區": "745" },
+            "高雄市": { "新興區": "800", "前金區": "801", "苓雅區": "802", "鹽埕區": "803", "鼓山區": "804", "旗津區": "805", "前鎮區": "806", "三民區": "807", "楠梓區": "811", "小港區": "812", "左營區": "813", "仁武區": "814", "大社區": "815", "岡山區": "820", "路竹區": "821", "阿蓮區": "822", "田寮區": "823", "燕巢區": "824", "橋頭區": "825", "梓官區": "826", "彌陀區": "827", "永安區": "828", "湖內區": "829", "鳳山區": "830", "大寮區": "831", "林園區": "832", "鳥松區": "833", "大樹區": "834", "旗山區": "842", "美濃區": "843", "六龜區": "844", "內門區": "845", "杉林區": "846", "甲仙區": "847", "桃源區": "848", "那瑪夏區": "849", "茂林區": "851", "茄萣區": "852" },
+            "屏東縣": { "屏東市": "900", "潮州鎮": "920", "東港鎮": "928", "恆春鎮": "946", "萬丹鄉": "913", "長治鄉": "908", "麟洛鄉": "909", "九如鄉": "904", "里港鄉": "905", "高樹鄉": "906", "鹽埔鄉": "907", "內埔鄉": "912", "萬巒鄉": "923", "竹田鄉": "911", "新埤鄉": "924", "枋寮鄉": "940", "新園鄉": "932", "崁頂鄉": "927", "林邊鄉": "927", "南州鄉": "926", "佳冬鄉": "931", "琉球鄉": "929", "車城鄉": "944", "滿州鄉": "947", "枋山鄉": "941", "三地門鄉": "901", "霧臺鄉": "902", "瑪家鄉": "903", "泰武鄉": "921", "來義鄉": "922", "春日鄉": "942", "獅子鄉": "943", "牡丹鄉": "945" },
+            "宜蘭縣": { "宜蘭市": "260", "羅東鎮": "265", "蘇澳鎮": "270", "頭城鎮": "261", "礁溪鄉": "262", "壯圍鄉": "263", "員山鄉": "264", "冬山鄉": "269", "五結鄉": "268", "三星鄉": "266", "大同鄉": "272", "南澳鄉": "272" },
+            "花蓮縣": { "花蓮市": "970", "鳳林鎮": "975", "玉里鎮": "981", "新城鄉": "971", "吉安鄉": "973", "壽豐鄉": "974", "光復鄉": "976", "豐濱鄉": "977", "瑞穗鄉": "978", "富里鄉": "983", "秀林鄉": "972", "萬榮鄉": "979", "卓溪鄉": "982" },
+            "台東縣": { "台東市": "950", "成功鎮": "961", "關山鎮": "956", "卑南鄉": "954", "鹿野鄉": "955", "延平鄉": "953", "海端鄉": "957", "池上鄉": "958", "東河鄉": "962", "長濱鄉": "963", "太麻里鄉": "965", "金峰鄉": "964", "大武鄉": "966", "達仁鄉": "966", "綠島鄉": "951", "蘭嶼鄉": "952" },
+            "澎湖縣": { "馬公市": "880", "湖西鄉": "885", "白沙鄉": "884", "西嶼鄉": "881", "望安鄉": "882", "七美鄉": "883" },
+            "金門縣": { "金城鎮": "893", "金湖鎮": "891", "金沙鎮": "890", "金寧鄉": "892", "烈嶼鄉": "894", "烏坵鄉": "896" },
+            "連江縣": { "南竿鄉": "209", "北竿鄉": "210", "莒光鄉": "211", "東引鄉": "212" }
+        };
+
+        // --- GLOBAL STATE ---
+        let SYSTEM_DATE = new Date(); 
+        let isEarlyBird = true; 
+        let price6 = 330;
+        let price8 = 420;
+        let pendingOrderCache = null; 
+
+        function formatDateDisplay(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y} / ${m} / ${day}`;
+        }
+
+        function formatDateStandard(d) {
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+
+        function copyBankAccount() {
+            navigator.clipboard.writeText("233700014899").then(() => {
+                showToast("已成功複製國泰世華帳號 (233700014899)！");
+            }).catch(() => {
+                showToast("帳號為：233700014899");
+            });
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('orderSuccessModal').classList.add('hidden');
+        }
+
+        // --- CUSTOM TOAST NOTIFICATION ---
+        function showToast(message) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = "bg-sleep-800 text-sleep-50 px-4 py-3 rounded-xl shadow-lg border border-sleep-600 text-xs font-serif tracking-wider transition-all duration-300 opacity-0 translate-y-2 pointer-events-auto flex items-center gap-2";
+            toast.innerHTML = `<span>🌙</span> <span>${message}</span>`;
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'translate-y-2');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3500);
+        }
+
+        // --- ON WINDOW LOAD INITIALIZATION ---
+        window.onload = function() {
+            SYSTEM_DATE = new Date(); 
+            document.getElementById('displayOrderDate').textContent = formatDateDisplay(SYSTEM_DATE);
+            
+            const cutoffDate = new Date("2026-08-31T23:59:59");
+            if (SYSTEM_DATE <= cutoffDate) {
+                isEarlyBird = true;
+                price6 = 330;
+                price8 = 420;
+                document.getElementById('promoBadge').className = "bg-sleep-800 text-white text-[10px] px-2 py-0.5 rounded font-sans font-normal";
+                document.getElementById('promoBadge').textContent = "早鳥優惠中";
+            } else {
+                isEarlyBird = false;
+                price6 = 360;
+                price8 = 480;
+                document.getElementById('promoBadge').className = "bg-sleep-600 text-white text-[10px] px-2 py-0.5 rounded font-sans font-normal";
+                document.getElementById('promoBadge').textContent = "常規價格";
+            }
+
+            document.getElementById('price6Text').textContent = "NT$ " + price6;
+            document.getElementById('price8Text').textContent = "NT$ " + price8;
+
+            initTaiwanLocationDropdowns();
+            calculateTotal();
+        }
+
+        // --- TAIWAN CITIES DROPDOWN SELECTOR ---
+        function initTaiwanLocationDropdowns() {
+            const citySel = document.getElementById('citySelect');
+            citySel.innerHTML = '<option value="">選擇縣市</option>';
+            
+            for (let city in TW_ZIP_DATA) {
+                let opt = document.createElement('option');
+                opt.value = city;
+                opt.textContent = city;
+                citySel.appendChild(opt);
+            }
+        }
+
+        function onCityChange() {
+            const citySel = document.getElementById('citySelect');
+            const distSel = document.getElementById('districtSelect');
+            const zipInput = document.getElementById('zipcodeInput');
+            
+            distSel.innerHTML = '<option value="">選擇鄉鎮區</option>';
+            zipInput.value = '';
+
+            const selectedCity = citySel.value;
+            if (!selectedCity) return;
+
+            const districts = TW_ZIP_DATA[selectedCity];
+            for (let dist in districts) {
+                let opt = document.createElement('option');
+                opt.value = dist;
+                opt.textContent = dist;
+                distSel.appendChild(opt);
+            }
+        }
+
+        function onDistrictChange() {
+            const citySel = document.getElementById('citySelect');
+            const distSel = document.getElementById('districtSelect');
+            const zipInput = document.getElementById('zipcodeInput');
+
+            const selectedCity = citySel.value;
+            const selectedDist = distSel.value;
+
+            if (selectedCity && selectedDist) {
+                zipInput.value = TW_ZIP_DATA[selectedCity][selectedDist];
+            } else {
+                zipInput.value = '';
+            }
+        }
+
+        // --- QUANTITY ADJUSTMENTS ---
+        function adjustQty(inputId, delta) {
+            const elem = document.getElementById(inputId);
+            let val = parseInt(elem.value) || 0;
+            val = Math.max(0, Math.min(99, val + delta));
+            elem.value = val;
+            calculateTotal();
+        }
+
+        // --- DELIVERY TOGGLER ---
+        function toggleDeliveryMethod() {
+            const method = document.querySelector('input[name="deliveryMethod"]:checked').value;
+            const panelPickup = document.getElementById('panelPickup');
+            const panelShipping = document.getElementById('panelShipping');
+
+            if (method === 'pickup') {
+                panelPickup.classList.remove('hidden');
+                panelShipping.classList.add('hidden');
+            } else {
+                panelPickup.classList.add('hidden');
+                panelShipping.classList.remove('hidden');
+            }
+            calculateTotal();
+        }
+
+        // --- CALCULATE LOGIC WITH TIERED SHIPPING FEES ---
+        function getCalculatedData() {
+            const qty6 = parseInt(document.getElementById('qty6').value) || 0;
+            const qty8 = parseInt(document.getElementById('qty8').value) || 0;
+            const totalBoxes = qty6 + qty8;
+
+            const sub6 = qty6 * price6;
+            const sub8 = qty8 * price8;
+            const productTotal = sub6 + sub8;
+
+            let shippingFee = 0;
+            const method = document.querySelector('input[name="deliveryMethod"]:checked').value;
+
+            if (method === 'shipping' && totalBoxes > 0) {
+                if (productTotal >= 3000) {
+                    shippingFee = 0;
+                } else if (totalBoxes <= 2) {
+                    shippingFee = 140;
+                } else if (totalBoxes <= 5) {
+                    shippingFee = 170;
+                } else if (totalBoxes <= 10) {
+                    shippingFee = 210;
+                } else {
+                    shippingFee = 210;
+                }
+            }
+
+            const grandTotal = productTotal + shippingFee;
+
+            return {
+                qty6, qty8, totalBoxes, sub6, sub8, productTotal, shippingFee, method, grandTotal
+            };
+        }
+
+        function calculateTotal() {
+            const data = getCalculatedData();
+
+            document.getElementById('billQty6').textContent = data.qty6 + " 盒";
+            document.getElementById('billSub6').textContent = "NT$ " + data.sub6.toLocaleString();
+            document.getElementById('billQty8').textContent = data.qty8 + " 盒";
+            document.getElementById('billSub8').textContent = "NT$ " + data.sub8.toLocaleString();
+            document.getElementById('billTotalBoxes').textContent = data.totalBoxes + " 盒";
+
+            if (data.method === 'pickup') {
+                document.getElementById('billLogisticsName').textContent = "自取 (免運)";
+                document.getElementById('billShippingFee').textContent = "NT$ 0";
+                document.getElementById('shippingPromoText').textContent = "自取無需物流費用";
+            } else {
+                document.getElementById('billLogisticsName').textContent = "常溫宅配";
+                document.getElementById('billShippingFee').textContent = "NT$ " + data.shippingFee.toLocaleString();
+                
+                if (data.productTotal >= 3000) {
+                    document.getElementById('shippingPromoText').textContent = "✨ 滿額 3,000 元！已享免運費";
+                } else {
+                    const diff = 3000 - data.productTotal;
+                    document.getElementById('shippingPromoText').textContent = `再購滿 NT$ ${diff.toLocaleString()} 元即享常溫免運費`;
+                }
+            }
+
+            document.getElementById('billGrandTotal').textContent = "NT$ " + data.grandTotal.toLocaleString();
+        }
+
+        // --- LINE TEXT FORMAT EXPORTER ---
+        function copyToLineFormat(silent = false) {
+            const data = getCalculatedData();
+            const custName = document.getElementById('custName').value.trim() || "(未填寫)";
+            const custPhone = document.getElementById('custPhone').value.trim() || "(未填寫)";
+            const deliveryDateStr = document.getElementById('deliveryDate').value || "(未指定)";
+            const orderDateStr = formatDateStandard(SYSTEM_DATE);
+
+            if (data.qty6 === 0 && data.qty8 === 0) {
+                if (!silent) showToast("請選擇禮盒數量後再複製明細。");
+                return;
+            }
+
+            let logisticsDetail = "";
+            if (data.method === 'pickup') {
+                logisticsDetail = "自取 (全家中泰店)\n取貨地址：台中市北屯區中清路二段409號、411號";
+            } else {
+                const city = document.getElementById('citySelect').value;
+                const dist = document.getElementById('districtSelect').value;
+                const zip = document.getElementById('zipcodeInput').value;
+                const street = document.getElementById('shippingAddress').value.trim() || "(未填寫)";
+                logisticsDetail = `常溫宅配\n收件地址：${zip ? `[${zip}] ` : ""}${city}${dist}${street}`;
+            }
+
+            let itemsDetail = "";
+            if (data.qty6 > 0) itemsDetail += `• 六入裝蛋黃酥禮盒：${data.qty6} 盒 (NT$ ${data.sub6.toLocaleString()})\n`;
+            if (data.qty8 > 0) itemsDetail += `• 八入裝蛋黃酥禮盒：${data.qty8} 盒 (NT$ ${data.sub8.toLocaleString()})\n`;
+
+            const lineText = `🌕【休眠模式｜2026中秋禮盒訂購明細】🌕\n` +
+                             `-------------------------------\n` +
+                             `貴賓姓名：${custName}\n` +
+                             `聯絡電話：${custPhone}\n` +
+                             `訂購日期：${orderDateStr}\n` +
+                             `預期出/取貨日：${deliveryDateStr}\n` +
+                             `-------------------------------\n` +
+                             `【訂購品項】\n` +
+                             `${itemsDetail}` +
+                             `-------------------------------\n` +
+                             `物流方式：${logisticsDetail}\n` +
+                             `運費小計：NT$ ${data.shippingFee.toLocaleString()}\n` +
+                             `應付總金額：NT$ ${data.grandTotal.toLocaleString()}\n` +
+                             `-------------------------------\n` +
+                             `【我的匯款回傳資訊】\n` +
+                             `✔ 工作室收款帳戶：國泰世華銀行 (013) 233700014899\n` +
+                             `已匯款帳號末五碼：_______\n` +
+                             `已匯款金額：NT$ ___________\n\n` +
+                             `感謝您的訂購，期待用甜點陪伴您共度秋夜。`;
+
+            navigator.clipboard.writeText(lineText).then(() => {
+                if (!silent) showToast("明細與匯款格式已成功複製！可直接貼進 LINE 對話。");
+            }).catch(err => {
+                if (!silent) showToast("複製失敗，請手動選取文字進行複製。");
+            });
+        }
+
+        // --- PRE-SUBMIT CHECK & OPEN CONFIRMATION MODAL ---
+        function handlePreSubmit(event) {
+            event.preventDefault();
+            const data = getCalculatedData();
+
+            if (data.qty6 === 0 && data.qty8 === 0) {
+                showToast("⚠️ 請至少選購一項蛋黃酥禮盒盒數再送出訂單。");
+                return;
+            }
+
+            const custName = document.getElementById('custName').value.trim();
+            const custPhone = document.getElementById('custPhone').value.trim();
+            const deliveryDateStr = document.getElementById('deliveryDate').value;
+
+            if (!custName || !custPhone) {
+                showToast("⚠️ 請填寫訂購人姓名與聯絡電話。");
+                return;
+            }
+
+            let logisticsInfo = "";
+            let isShipping = (data.method === 'shipping');
+
+            if (!isShipping) {
+                logisticsInfo = "自取 (全家中泰店)";
+            } else {
+                const city = document.getElementById('citySelect').value;
+                const dist = document.getElementById('districtSelect').value;
+                const zip = document.getElementById('zipcodeInput').value;
+                const street = document.getElementById('shippingAddress').value.trim();
+                if (!city || !dist || !street) {
+                    showToast("⚠️ 請完整填寫常溫宅配的縣市、鄉鎮區及詳細收件地址。");
+                    return;
+                }
+                logisticsInfo = `${zip ? `[${zip}] ` : ""}${city}${dist}${street}`;
+            }
+
+            const orderId = "SM-" + Date.now().toString().slice(-6);
+            pendingOrderCache = {
+                id: orderId,
+                name: custName,
+                phone: custPhone,
+                orderDate: formatDateStandard(SYSTEM_DATE),
+                deliveryDate: deliveryDateStr,
+                qty6: data.qty6,
+                qty8: data.qty8,
+                sub6: data.sub6,
+                sub8: data.sub8,
+                method: data.method,
+                logistics: logisticsInfo,
+                shippingFee: data.shippingFee,
+                total: data.grandTotal,
+                status: "已收單"
+            };
+
+            document.getElementById('confirmCustName').textContent = custName;
+            document.getElementById('confirmCustPhone').textContent = custPhone;
+            document.getElementById('confirmOrderDate').textContent = formatDateStandard(SYSTEM_DATE);
+            document.getElementById('confirmDeliveryDate').textContent = deliveryDateStr;
+
+            const itemsUl = document.getElementById('confirmItemsList');
+            itemsUl.innerHTML = "";
+            if (data.qty6 > 0) {
+                itemsUl.innerHTML += `<li>• 六入裝蛋黃酥禮盒 × ${data.qty6} 盒（小計 NT$ ${data.sub6.toLocaleString()}）</li>`;
+            }
+            if (data.qty8 > 0) {
+                itemsUl.innerHTML += `<li>• 八入裝蛋黃酥禮盒 × ${data.qty8} 盒（小計 NT$ ${data.sub8.toLocaleString()}）</li>`;
+            }
+
+            if (isShipping) {
+                document.getElementById('confirmLogisticsMethod').textContent = `常溫宅配（運費 NT$ ${data.shippingFee}）`;
+                document.getElementById('confirmAddressRow').classList.remove('hidden');
+                document.getElementById('confirmAddressText').textContent = logisticsInfo;
+            } else {
+                document.getElementById('confirmLogisticsMethod').textContent = "自取 (全家中泰店 - 免運)";
+                document.getElementById('confirmAddressRow').classList.add('hidden');
+            }
+
+            document.getElementById('confirmGrandTotal').textContent = "NT$ " + data.grandTotal.toLocaleString();
+            document.getElementById('confirmOrderModal').classList.remove('hidden');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmOrderModal').classList.add('hidden');
+        }
+
+        // --- FINAL CONFIRMATION & SHOW PROMINENT LINE GUIDANCE MODAL ---
+        function finalExecuteSubmitOrder() {
+            if (!pendingOrderCache) return;
+
+            let currentOrders = JSON.parse(localStorage.getItem('sleepModeOrdersDatabase')) || [];
+            currentOrders.unshift(pendingOrderCache);
+            localStorage.setItem('sleepModeOrdersDatabase', JSON.stringify(currentOrders));
+
+            copyToLineFormat(true);
+            closeConfirmModal();
+
+            document.getElementById('successModalTotal').textContent = "NT$ " + pendingOrderCache.total.toLocaleString();
+            document.getElementById('orderSuccessModal').classList.remove('hidden');
+        }
+
+        // --- ADMIN MODAL CONTROLS ---
+        function openAdminBackend() {
+            document.getElementById('adminModal').classList.remove('hidden');
+            renderBackendOrders();
+        }
+
+        function closeAdminBackend() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
+
+        function renderBackendOrders() {
+            const tbody = document.getElementById('backendOrderTableBody');
+            const currentOrders = JSON.parse(localStorage.getItem('sleepModeOrdersDatabase')) || [];
+
+            if (currentOrders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="9" class="p-6 text-center text-sleep-600 italic">目前尚未收到任何中秋限量訂單明細。</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = "";
+            currentOrders.forEach((order) => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-sleep-200/60 hover:bg-sleep-50 font-mono text-[11px] text-sleep-900 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-3 font-bold text-sleep-800">${order.id}</td>
+                    <td class="p-3 font-sans">${order.name}</td>
+                    <td class="p-3">${order.phone}</td>
+                    <td class="p-3">${order.deliveryDate}</td>
+                    <td class="p-3 text-center">${order.qty6}</td>
+                    <td class="p-3 text-center">${order.qty8}</td>
+                    <td class="p-3 font-sans max-w-xs truncate" title="${order.logistics}">${order.logistics}</td>
+                    <td class="p-3 text-right font-bold text-sleep-800">NT$ ${order.total.toLocaleString()}</td>
+                    <td class="p-3 text-center">
+                        <select onchange="updateOrderStatus('${order.id}', this.value)" class="bg-sleep-100 border border-sleep-200 rounded px-1.5 py-0.5 text-[10px] font-sans">
+                            <option value="已收單" ${order.status === '已收單' ? 'selected' : ''}>已收單</option>
+                            <option value="已對帳" ${order.status === '已對帳' ? 'selected' : ''}>已對帳</option>
+                            <option value="已出貨" ${order.status === '已出貨' ? 'selected' : ''}>已出貨</option>
+                        </select>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            let currentOrders = JSON.parse(localStorage.getItem('sleepModeOrdersDatabase')) || [];
+            currentOrders = currentOrders.map(o => o.id === orderId ? { ...o, status: newStatus } : o);
+            localStorage.setItem('sleepModeOrdersDatabase', JSON.stringify(currentOrders));
+            showToast(`訂單 ${orderId} 狀態已更新為：${newStatus}`);
+        }
+
+        function clearAllOrdersBackend() {
+            if (confirm("確定要清空這台裝置上的所有中秋訂單記錄嗎？此動作將無法復原。")) {
+                localStorage.removeItem('sleepModeOrdersDatabase');
+                renderBackendOrders();
+                showToast("所有訂單記錄已清空。");
+            }
+        }
+
+        function exportOrdersToCSV() {
+            const currentOrders = JSON.parse(localStorage.getItem('sleepModeOrdersDatabase')) || [];
+            if (currentOrders.length === 0) {
+                showToast("目前後台沒有訂單資料可以匯出喔。");
+                return;
+            }
+
+            let csvContent = "\uFEFF";
+            csvContent += "訂單編號,顧客姓名,聯絡電話,訂購日期,預期出取貨日,六入盒數,八入盒數,物流送貨地址,總計金額,訂單狀態\n";
+
+            currentOrders.forEach(o => {
+                csvContent += `"${o.id}","${o.name}","${o.phone}","${o.orderDate || ''}","${o.deliveryDate}","${o.qty6}","${o.qty8}","${o.logistics.replace(/"/g, '""')}","${o.total}","${o.status}"\n`;
+            });
+
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `休眠模式_2026中秋禮盒訂單後台清單.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("後台清單 CSV 檔案已成功導出！");
+        }
+    </script>
+</body>
+</html>
