@@ -150,16 +150,16 @@
                             <p class="text-[10px] text-sleep-600 mt-1">※ 系統依今日日期自動鎖定，保障您的早鳥訂購權益。</p>
                         </div>
 
-                        <!-- Target Delivery/Pickup Date (加上 onchange 即時防呆機制) -->
+                        <!-- Target Delivery/Pickup Date (含 8/17~9/24 雙向硬性校正) -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
                                 <label for="deliveryDate" class="block text-xs font-bold text-sleep-800">預期出貨 / 自取日期 <span class="text-red-500">*</span></label>
-                                <span id="deliveryDateErr" class="text-[10px] text-red-500 hidden">⚠️ 日期須為 8/17 起</span>
+                                <span id="deliveryDateErr" class="text-[10px] text-red-500 hidden">⚠️ 日期須在 8/17 ~ 9/24 間</span>
                             </div>
                             <input type="date" id="deliveryDate" min="2026-08-17" max="2026-09-24" value="2026-08-17" required
                                    onchange="validateDeliveryDate();"
                                    class="w-full bg-white border border-sleep-200 rounded-lg px-3 py-2 text-sm text-sleep-800 font-mono transition-all">
-                            <p class="text-[10px] text-sleep-600 mt-1">※ 開放取貨日期為 2026/08/17 起。供備貨排單使用，不影響早鳥價格判定。</p>
+                            <p class="text-[10px] text-sleep-600 mt-1">※ 可選區間為 2026/08/17 至 2026/09/24。供備貨排單使用。</p>
                         </div>
                     </div>
                 </div>
@@ -664,7 +664,7 @@
             }, 3500);
         }
 
-        // --- HARDVALIDATE DELIVERY DATE (針對手機 Safari 滾輪問題) ---
+        // --- HARDVALIDATE DELIVERY DATE (針對手機 Safari 上下限滾輪問題) ---
         function validateDeliveryDate() {
             const dateInput = document.getElementById('deliveryDate');
             const errHint = document.getElementById('deliveryDateErr');
@@ -675,6 +675,12 @@
                 dateInput.classList.add('input-error');
                 if (errHint) errHint.classList.remove('hidden');
                 showToast("⚠️ 開放取貨日期為 2026/08/17 起，已自動調整為 8/17。");
+                return false;
+            } else if (selectedVal && selectedVal > "2026-09-24") {
+                dateInput.value = "2026-09-24"; // 強制校正跳回 9/24
+                dateInput.classList.add('input-error');
+                if (errHint) errHint.classList.remove('hidden');
+                showToast("⚠️ 最晚取貨日期為 2026/09/24，已自動調整為 9/24。");
                 return false;
             } else {
                 dateInput.classList.remove('input-error');
@@ -932,7 +938,7 @@
             const data = getCalculatedData();
             let firstErrorElem = null;
 
-            // 0. 硬性檢查取貨日期是否小於 8/17
+            // 0. 硬性檢查取貨日期是否不在 8/17 ~ 9/24 區間
             if (!validateDeliveryDate()) {
                 const dateElem = document.getElementById('deliveryDate');
                 if (!firstErrorElem) firstErrorElem = dateElem;
